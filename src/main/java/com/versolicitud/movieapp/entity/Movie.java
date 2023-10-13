@@ -48,6 +48,9 @@ public class Movie {
 	@Column(name = "status", nullable = false)
 	private int status;
 	
+	@Column(name = "slug")
+	private String slug;
+	
 	@Column(name = "released_at", nullable = false)
   	private Timestamp releasedAt;
 	
@@ -72,6 +75,9 @@ public class Movie {
   	
   	@OneToMany(mappedBy = "movie")
     private List<Episode> episodes = new ArrayList<>();
+  	
+  	@OneToMany(mappedBy = "movie")
+    private List<Trailer> trailers = new ArrayList<>();
   	
   	@ManyToOne
 	@JoinColumn(name = "genre_id", insertable = true, updatable = true)

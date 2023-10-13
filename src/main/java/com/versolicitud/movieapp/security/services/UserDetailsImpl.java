@@ -23,6 +23,10 @@ public class UserDetailsImpl implements UserDetails {
 	private String username;
 
 	private String email;
+	
+	private int isActivated;
+	
+	private int is2FA;
 
 	@JsonIgnore
 	private String password;
@@ -30,11 +34,14 @@ public class UserDetailsImpl implements UserDetails {
 	private Collection<? extends GrantedAuthority> authorities;
 	
 	public UserDetailsImpl(UUID id, String username, String email, String password,
+			int is2FA, int isActivated,
 		      Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.is2FA = is2FA;
+		this.isActivated = isActivated;
 		this.authorities = authorities;
 	}
 	
@@ -48,6 +55,8 @@ public class UserDetailsImpl implements UserDetails {
 	        user.getUsername(), 
 	        user.getEmail(),
 	        user.getPassword(), 
+	        user.getIs2FA(),
+	        user.getIsActivated(),
 	        getGrantedAuthorities(user.getRoles().stream().collect(Collectors.toList()))
 	    );
 	}

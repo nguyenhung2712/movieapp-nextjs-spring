@@ -30,5 +30,5 @@ public class RefreshToken {
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id", insertable = true, updatable = true)
-	private User user;	
+	private User user;
 }

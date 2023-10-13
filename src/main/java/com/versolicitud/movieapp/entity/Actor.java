@@ -27,30 +27,30 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "actors")
 public class Actor {
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "id", nullable = false)
-	private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false)
+    private UUID id;
+
+    @Column(name = "fullname")
+    private String fullName;
 	
-	@Column(name = "fullname")
-	private String fullname;
-	
-	@Column(name = "dob")
-	private Date dob;	
-	
-	@Column(name = "bio")
-	private String bio;
-	
-	@Column(name = "status", nullable = false)
-	private int status;
-	
-	@Column(name = "created_at", nullable = false)
-	@CreationTimestamp
-	private Timestamp createdAt;
-  	
-  	@Column(name = "updated_at")
-  	private Timestamp updatedAt;
-  	
-  	@OneToMany(mappedBy = "actor")
+    @Column(name = "dob")
+    private Date dob;
+
+    @Column(name = "bio")
+    private String bio;
+
+    @Column(name = "status", nullable = false)
+    private int status;
+
+    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
+
+    @OneToMany(mappedBy = "actor")
     private List<MovieActor> movieActors = new ArrayList<>();
 }

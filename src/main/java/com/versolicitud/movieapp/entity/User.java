@@ -23,10 +23,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users", 
-uniqueConstraints = { 
-  @UniqueConstraint(columnNames = "username"),
-  @UniqueConstraint(columnNames = "email") 
-})
+	uniqueConstraints = { 
+	  @UniqueConstraint(columnNames = "username"),
+	  @UniqueConstraint(columnNames = "email") 
+	}
+)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -50,6 +51,12 @@ public class User {
 	
 	@Column(name = "status", nullable = false)
 	private int status;
+	
+	@Column(name = "is_2fa", nullable = false)
+	private int is2FA;
+	
+	@Column(name = "is_activated", nullable = false)
+	private int isActivated;
   	
   	@Column(name = "created_at", nullable = false)
   	@CreationTimestamp

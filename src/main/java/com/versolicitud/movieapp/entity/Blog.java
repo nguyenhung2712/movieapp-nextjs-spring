@@ -42,6 +42,9 @@ public class Blog {
 	@Column(name = "status", nullable = false)
 	private int status;
 	
+	@Column(name = "slug", nullable = false)
+	private String slug;
+	
 	@Column(name = "created_at", nullable = false)
 	@CreationTimestamp
 	private Timestamp createdAt;
